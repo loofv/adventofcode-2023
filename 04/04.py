@@ -3,14 +3,30 @@ lines = f.read().split("\n")
 
 count = 0
 
+# def isOverlapping(r1, r2):
+#     for r in r1:
+#         if
+
 def calcCount(s1, s2, e1, e2):
     global count
-    if s1 == e1 and s2 == e2:
-        count += 1
-    elif s1 <= e1 and s2 >= e2:
-        count += 1
-    elif e1 <= s1 and e2 >= s2:
-        count += 1
+    if s1 <= e1:
+        print("got 1")
+        for i in range(s1, s2+1):
+            print("i: ", i)
+            if i == e1:
+                count +=1
+    elif e1 <= s1:
+        print("got 2")
+        for i in range(e1, e2+1):
+            print("i: ", i)
+            if i == s1:
+                count +=1
+
+
+# calcCount(5,7,7,9)
+
+
+
 
 for line in lines:
     if line != "":
@@ -25,27 +41,4 @@ for line in lines:
 
         calcCount(s1, s2, e1, e2)
 
-# calcCount(1, 82, 1, 82)
-
 print("count: ", count)
-
-
-# for sack in sacks:
-#     if sack != "":
-#         sack = list(sack)
-#         # print("sack: ", sack)
-#         length = len(sack)
-#         c1 = sack[slice(0, length//2)]
-#         # print("c1: ", sack[c1])
-#         c2 = sack[slice(length//2, length)]
-#         # print("c2: ", sack[c2])
-#         currDubs=[]
-#         for c in c1:
-#             for d in c2:
-#                 if c == d and c not in currDubs:
-#                     sum += getPriorityValue(c)
-#                     currDubs.append(c)
-
-# print("sum: ", sum)
-
-
